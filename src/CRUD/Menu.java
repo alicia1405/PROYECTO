@@ -21,10 +21,13 @@ public class Menu extends javax.swing.JFrame {
 
     
     public Menu() {
-        initComponents();
+        
+       initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        inicio();
+        setTitle("***MAIN***");
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/ico.png")).getImage());
+         inicio();
     }
 
     public void inicio(){
@@ -41,10 +44,7 @@ public class Menu extends javax.swing.JFrame {
         lNivel = new javax.swing.JLabel();
         lUsuario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        jBas = new javax.swing.JComboBox();
         btnSalir1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Username = new javax.swing.JLabel();
@@ -52,6 +52,12 @@ public class Menu extends javax.swing.JFrame {
         Puntaje = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jInter = new javax.swing.JComboBox();
+        jAvan = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         lIma.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -67,138 +73,109 @@ public class Menu extends javax.swing.JFrame {
         lUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText(" Elige un juego:");
+        jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 36)); // NOI18N
+        jLabel1.setText("Choose a Game:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 288, -1));
 
-        jButton1.setText("Nivel básico");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Nivel intermedio");
-
-        jButton3.setText("Nivel avanzado");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ahorcado", "Memorama" }));
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        jBas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hanged Person", "Memo" }));
+        jBas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                jBasItemStateChanged(evt);
             }
         });
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jBas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jBasActionPerformed(evt);
             }
         });
+        getContentPane().add(jBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
-        btnSalir1.setText("Cerrar sesion");
+        btnSalir1.setText("LOGOUT");
         btnSalir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalir1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 140, 34));
 
         Username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jScrollPane1.setViewportView(Username);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 83, 25));
+
         Puntaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jScrollPane2.setViewportView(Puntaje);
 
-        jLabel2.setText("Bienvenid@");
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 83, 25));
 
-        jLabel3.setText("Puntaje acumulado:");
+        jLabel2.setText("Welcome:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 75, 25));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(78, 78, 78)
-                        .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(53, 53, 53)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(303, 303, 303))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)))
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(jButton2)
-                .addGap(46, 46, 46)
-                .addComponent(jButton3)
-                .addGap(52, 52, 52))
-        );
+        jLabel3.setText("Accumulated Score");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 100, 25));
+
+        jInter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hanged Person", "Memo" }));
+        jInter.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jInterItemStateChanged(evt);
+            }
+        });
+        jInter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jInterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jInter, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
+
+        jAvan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hanged Person", "Memo" }));
+        jAvan.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jAvanItemStateChanged(evt);
+            }
+        });
+        jAvan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAvanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jAvan, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel4.setText("BASIC:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel5.setText("INTERMEDIATE:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel6.setText("ADVANCED:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/globos.jpg"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -220, 710, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        if(jComboBox1.getSelectedIndex() == 0){
+    private void jBasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBasActionPerformed
+        if(jBas.getSelectedIndex() == 0){
         Ahorcado ok = new Ahorcado ();
         ok.setVisible(true);
         this.setVisible(false); 
-        }if(jComboBox1.getSelectedIndex() == 1){
+        }if(jBas.getSelectedIndex() == 1){
         Memorama ok = new Memorama ();
         ok.setVisible(true);
         this.setVisible(false); 
         }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jBasActionPerformed
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+    private void jBasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jBasItemStateChanged
         
         
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    }//GEN-LAST:event_jBasItemStateChanged
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
@@ -214,6 +191,36 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    private void jInterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jInterItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jInterItemStateChanged
+
+    private void jInterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInterActionPerformed
+        if(jInter.getSelectedIndex() == 0){
+        Ahorcado1 ok = new Ahorcado1 ();
+        ok.setVisible(true);
+        this.setVisible(false); 
+        }if(jInter.getSelectedIndex() == 1){
+        Memorama1 ok = new Memorama1 ();
+        ok.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jInterActionPerformed
+    }
+    private void jAvanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jAvanItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAvanItemStateChanged
+
+    private void jAvanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAvanActionPerformed
+        if(jAvan.getSelectedIndex() == 0){
+        Ahorcado11 ok = new Ahorcado11 ();
+        ok.setVisible(true);
+        this.setVisible(false); 
+        }if(jAvan.getSelectedIndex() == 1){
+        Memorama2 ok = new Memorama2 ();
+        ok.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jAvanActionPerformed
+    }
     /**
      * @param args the command line arguments
      */
@@ -254,13 +261,16 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel Username;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSalir1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jAvan;
+    private javax.swing.JComboBox jBas;
+    private javax.swing.JComboBox jInter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lIma;

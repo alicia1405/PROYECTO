@@ -5,6 +5,11 @@
  */
 package CRUD;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Alicia Sandoval
@@ -16,6 +21,12 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("***WELCOME!!***");
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/ico.png")).getImage());
+ 
+        
     }
 
     /**
@@ -27,45 +38,39 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         btnInicioSesion = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnInicioSesion.setText("INICIAR SESION");
+        btnInicioSesion.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnInicioSesion.setText("LOG IN");
         btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioSesionActionPerformed(evt);
             }
         });
+        getContentPane().add(btnInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 270, 90));
 
-        btnRegistrarse.setText("REGISTRARSE");
+        btnRegistrarse.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnRegistrarse.setText("SIGN IN");
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarseActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 260, 90));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnInicioSesion)
-                    .addComponent(btnRegistrarse))
-                .addContainerGap(174, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addComponent(btnInicioSesion)
-                .addGap(37, 37, 37)
-                .addComponent(btnRegistrarse)
-                .addGap(64, 64, 64))
-        );
+        jLabel4.setFont(new java.awt.Font("DFKai-SB", 1, 48)); // NOI18N
+        jLabel4.setText("THE POWER");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/images.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 630, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -121,5 +126,8 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInicioSesion;
     private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

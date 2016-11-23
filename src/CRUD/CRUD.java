@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,9 +17,14 @@ public class CRUD extends javax.swing.JFrame {
     public static Datos jugador;
     public static ConsultasBD registros = new ConsultasBD();
     public static boolean enter = true;
-
+    public static int  nivel ;
     public CRUD() {
         initComponents();      
+       
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("***LOG IN***");
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/ico.png")).getImage());
     }
 
     Connection connection;
@@ -30,6 +36,7 @@ public class CRUD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
@@ -38,18 +45,23 @@ public class CRUD extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        btnLimpiar.setText("CLEAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 140, 30));
 
         txtPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtPassword.setPreferredSize(new java.awt.Dimension(200, 21));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 138, -1, 30));
 
         txtUsername.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtUsername.setPreferredSize(new java.awt.Dimension(200, 21));
@@ -58,79 +70,40 @@ public class CRUD extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
+        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, 30));
 
-        btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnAceptar.setText("ACEPTAR");
+        btnAceptar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        btnAceptar.setText("OK");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 140, 40));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Username:");
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        jLabel2.setText("Name:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Contraseña:");
+        jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        jLabel1.setText("Password:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
-        jLabel3.setText("Ingresa tus datos");
+        jLabel3.setFont(new java.awt.Font("Snap ITC", 0, 24)); // NOI18N
+        jLabel3.setText("Enter your information:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 350, 50));
 
-        jButton1.setText("ATRAS");
+        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        jButton1.setText("BACK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 140, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(74, 74, 74)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLimpiar)
-                        .addGap(9, 9, 9))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton1)
-                                .addComponent(btnAceptar)))))
-                .addContainerGap(67, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnLimpiar)
-                .addGap(18, 18, 18)
-                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sesion.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 590, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,23 +127,24 @@ public class CRUD extends javax.swing.JFrame {
             if (buscado != null) {
                 String pass = buscado.getPassword();
                 if (Password.compareTo(pass) == 0) {
-                    JOptionPane.showMessageDialog(null, "Sesion Iniciada");
+                    JOptionPane.showMessageDialog(null, "Logged");
                     enter = false;
                     jugador = buscado;
+                    nivel= jugador.getPuntaje();
                     Menu abrir = new Menu();
                     abrir.setVisible(true);
                     this.setVisible(false);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Datos Incorrectos");
+                    JOptionPane.showMessageDialog(null, "Wrong Information");
                     enter = false;
                 }
             } 
             else {
-                JOptionPane.showMessageDialog(null, "Este usuario no existe");
+                JOptionPane.showMessageDialog(null, "This user doesn't exist");
                 enter = false;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Falta" + nm + ps);
+            JOptionPane.showMessageDialog(null, "Need" + nm + ps);
             enter = false;
         }
         
@@ -235,6 +209,8 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables

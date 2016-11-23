@@ -22,7 +22,7 @@ import javax.swing.plaf.OptionPaneUI;
  */
 
 
-public class Memorama extends javax.swing.JFrame {
+public class Memorama1 extends javax.swing.JFrame {
     public static Datos jugador;
     public static ConsultasBD registros = new ConsultasBD();
     public static boolean enter = true;
@@ -42,7 +42,7 @@ public class Memorama extends javax.swing.JFrame {
     private boolean primerc = false;
     private int puntaje = 0;
 
-    public Memorama() {
+    public Memorama1() {
        
         initComponents();
         setLocationRelativeTo(null);
@@ -59,22 +59,22 @@ public class Memorama extends javax.swing.JFrame {
         int[] numbers = log.getCardNumbers();
         
         /* reemplazar el uso de "../imagenes/..." por "/imagenes/..." */
-        btnC1.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[0] + ".png")));
-        btnC2.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[1] + ".png")));
-        btnC3.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[2] + ".png")));
-        btnC4.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[3] + ".png")));
-        btnC5.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[4] + ".png")));
-        btnC6.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[5] + ".png")));
-        btnC7.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[6] + ".png")));
-        btnC8.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[7] + ".png")));
-        btnC9.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[8] + ".png")));
-        btnC10.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[9] + ".png")));
-        btnC11.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[10] + ".png")));
-        btnC12.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[11] + ".png")));
-        btnC13.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[12] + ".png")));
-        btnC14.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[13] + ".png")));
-        btnC15.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[14] + ".png")));
-        btnC16.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[15] + ".png")));
+        btnC1.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[0] + ".png")));
+        btnC2.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[1] + ".png")));
+        btnC3.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[2] + ".png")));
+        btnC4.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[3] + ".png")));
+        btnC5.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[4] + ".png")));
+        btnC6.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[5] + ".png")));
+        btnC7.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[6] + ".png")));
+        btnC8.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[7] + ".png")));
+        btnC9.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[8] + ".png")));
+        btnC10.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[9] + ".png")));
+        btnC11.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[10] + ".png")));
+        btnC12.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[11] + ".png")));
+        btnC13.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[12] + ".png")));
+        btnC14.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[13] + ".png")));
+        btnC15.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[14] + ".png")));
+        btnC16.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/cc" + numbers[15] + ".png")));
     }
 
     private void btnEnabled(JButton btn) {
@@ -183,7 +183,7 @@ public class Memorama extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("WELCOME!!");
 
-        jPanel1.setBackground(new java.awt.Color(204, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnC1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/c0.png"))); // NOI18N
@@ -521,16 +521,15 @@ public class Memorama extends javax.swing.JFrame {
                     .addComponent(btnC11)
                     .addComponent(btnC12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnC13)
-                    .addComponent(btnC14)
-                    .addComponent(btnC15)
-                    .addComponent(btnC16))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnC14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnC15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnC16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnC13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         btnReiniciar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnReiniciar.setForeground(new java.awt.Color(0, 204, 0));
         btnReiniciar.setText("RESTART");
         btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -545,53 +544,52 @@ public class Memorama extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel2.setText("BASIC LEVEL");
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel2.setText("INTERMEDIATE LEVEL");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnReiniciar, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jLabel2))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(jLabel1)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addContainerGap()
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(241, 241, 241)
                         .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(139, 139, 139))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(770, 779));
+        setSize(new java.awt.Dimension(752, 779));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -763,21 +761,23 @@ public class Memorama extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Memorama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Memorama1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Memorama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Memorama1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Memorama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Memorama1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Memorama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Memorama1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Memorama().setVisible(true);
+                new Memorama1().setVisible(true);
             }
         });
     }

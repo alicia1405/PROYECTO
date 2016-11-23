@@ -1,6 +1,7 @@
 
 package CRUD;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,110 +12,76 @@ public class Registro extends javax.swing.JFrame {
 
     public static ConsultasBD registro = new ConsultasBD();
     public Registro() {
+        
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("***PLAYER REGISTRATION***");
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/ico.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 222, 31));
+        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 222, 28));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 222, 31));
 
-        jLabel1.setText("nombre");
-
-        jLabel2.setText("contraseña");
-
-        jLabel3.setText("username");
-
-        btnGuardar.setText("guardar");
+        btnGuardar.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        btnGuardar.setText("SAVE");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, 31));
 
-        btnLimpiar.setText("limpiar");
+        btnLimpiar.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        btnLimpiar.setText("CLEAR");
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 120, 40));
 
-        btnAtras.setText("atras");
+        btnAtras.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        btnAtras.setText("BACK");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtrasActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 120, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(166, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnGuardar)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel3))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(27, 27, 27)
-                                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(37, 37, 37)
-                                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLimpiar)
-                                .addGap(81, 81, 81)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addComponent(btnAtras)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(78, 78, 78)
-                .addComponent(btnGuardar)
-                .addGap(30, 30, 30)
-                .addComponent(btnLimpiar)
-                .addGap(26, 26, 26)
-                .addComponent(btnAtras)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        jLabel4.setText("Username:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Snap ITC", 0, 24)); // NOI18N
+        jLabel5.setText("Enter your information:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 350, 50));
+
+        jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        jLabel6.setText("Name:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        jLabel7.setText("Password:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/images.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -60, 710, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,11 +90,12 @@ public class Registro extends javax.swing.JFrame {
         String nombre = txtNombre.getText();;
         String usuario = txtUsername.getText();
         String passs = txtPassword.getText();
+        int puntaje=0;
         Boolean nom = false, user = false;
         Boolean pass = false;
         String name = "\n* Nombre";
         String usu = "\n* Usuario", ps = "\n* Contraseña";
-       
+        
         if (nombre.compareTo("") != 0) {
             nom = true;
             name = "";
@@ -140,28 +108,31 @@ public class Registro extends javax.swing.JFrame {
             pass = true;
             ps = "";
         }
+        
+        Boolean pun=true;
+        
         boolean valo;
         String us = "";
         Datos buscado = registro.buscarUser(usuario);
         if(buscado != null){
             us = buscado.getUsername();
         }
-        JOptionPane.showMessageDialog(null, us);
-        if (nom == true  && user == true && pass == true  ) {
+        //JOptionPane.showMessageDialog(null, us);
+        if (nom == true  && user == true && pass == true && pun==true ) {
             if (us.compareTo(usuario) != 0) {
                 
-                    registro.insertarUsuario(nombre, usuario, passs);
-                    JOptionPane.showMessageDialog(null, "¡Registro Exitoso!");
+                    registro.insertarUsuario(nombre, usuario, passs, puntaje);
+                    JOptionPane.showMessageDialog(null, "¡SUCCESSFUL SIGNED !");
                     CRUD abrir = new CRUD();
                     abrir.setVisible(true);
                     this.setVisible(false);
                
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario ya registrado");
+                JOptionPane.showMessageDialog(null, "THIS USER IS ALREADY REGISTERED");
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Faltan Datos" + name  + usu + ps );
+            JOptionPane.showMessageDialog(null, "MISSING INFORMATION" + name  + usu + ps );
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -209,8 +180,10 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;

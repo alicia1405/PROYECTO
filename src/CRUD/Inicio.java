@@ -5,6 +5,7 @@
  */
 package CRUD;
 
+import java.applet.AudioClip;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -25,7 +26,9 @@ public class Inicio extends javax.swing.JFrame {
         setResizable(false);
         setTitle("***WELCOME!!***");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/ico.png")).getImage());
- 
+        AudioClip sound;
+            sound= java.applet.Applet.newAudioClip(getClass().getResource("/CRUD/sound.wav"));
+            sound.play();
         
     }
 

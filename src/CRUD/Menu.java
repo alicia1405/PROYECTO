@@ -25,14 +25,14 @@ public class Menu extends javax.swing.JFrame {
        initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("***MAIN***");
+        setTitle("***MENU***");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/ico.png")).getImage());
          inicio();
     }
 
     public void inicio(){
     Username.setText(CRUD.jugador.getUsername());
-    Puntaje.setText(Integer.toString(CRUD.jugador.getPuntaje()));
+        Puntaje.setText(Integer.toString(CRUD.jugador.getPuntaje()));
 }
    
     @SuppressWarnings("unchecked")
@@ -103,7 +103,7 @@ public class Menu extends javax.swing.JFrame {
         Username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jScrollPane1.setViewportView(Username);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 83, 25));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 83, 25));
 
         Puntaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jScrollPane2.setViewportView(Puntaje);
@@ -114,7 +114,7 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 75, 25));
 
         jLabel3.setText("Accumulated Score");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 100, 25));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 110, 25));
 
         jInter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hanged Person", "Memo" }));
         jInter.addItemListener(new java.awt.event.ItemListener() {

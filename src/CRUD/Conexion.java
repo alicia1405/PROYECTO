@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package CRUD;
-
+ 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,11 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author Alicia Sandoval
  */
+
 public class Conexion {
     
     public static final String user= "root";
+    public static final String password= "";   
     public static final String URL = "jdbc:mysql://localhost:3306/aplicacion";
-    public static final String password= "";
+
 
     public Connection connection;
     
@@ -32,22 +30,6 @@ public class Conexion {
     public void setConnection(Connection connection){
         this.connection = connection;
     }
-        /*Connection connection = null;
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(URL,user, password);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        return connection;
-    }
-    public static Connection setConnection() {
-        Connection connection = null;
-        return connection;
-    }*/
-    
     
      public Conexion conectar(String host, String bd, String user, String pass){
         try {

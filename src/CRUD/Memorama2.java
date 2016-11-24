@@ -7,6 +7,7 @@ package CRUD;
 import static CRUD.Registro.registro;
 import auxiliarmem.VFondo;
 import auxiliarmem.LogicaJuego;
+import java.applet.AudioClip;
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -95,7 +96,7 @@ public class Memorama2 extends javax.swing.JFrame {
         }
     }
 
-    private void compare() {
+    private void comparar() {
         if (caraUp && primerc) {
 
             if (im1.getDescription().compareTo(im2.getDescription()) != 0) {
@@ -138,7 +139,10 @@ public class Memorama2 extends javax.swing.JFrame {
                 && !btnC7.isEnabled() && !btnC8.isEnabled() && !btnC9.isEnabled() && !btnC10.isEnabled() && !btnC11.isEnabled()
                 && !btnC12.isEnabled() && !btnC13.isEnabled() && !btnC14.isEnabled() && !btnC15.isEnabled() && !btnC16.isEnabled()) {
             JOptionPane.showMessageDialog(this, "Congratulations! you won, your score is: " + puntaje, "Win!!", JOptionPane.INFORMATION_MESSAGE);
-        String va=CRUD.jugador.getUsername();
+            AudioClip aplauso;
+            aplauso= java.applet.Applet.newAudioClip(getClass().getResource("/CRUD/aplauso.wav"));
+            aplauso.play();
+            String va=CRUD.jugador.getUsername();
        CRUD.nivel=CRUD.nivel+puntaje;
        registro.modificaPuntaje(va, CRUD.nivel);
        }
@@ -655,82 +659,82 @@ public class Memorama2 extends javax.swing.JFrame {
 
     private void btnC1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC1MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC1MouseExited
 
     private void btnC2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC2MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC2MouseExited
 
     private void btnC3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC3MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC3MouseExited
 
     private void btnC4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC4MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC4MouseExited
 
     private void btnC5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC5MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC5MouseExited
 
     private void btnC6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC6MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC6MouseExited
 
     private void btnC7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC7MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC7MouseExited
 
     private void btnC8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC8MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC8MouseExited
 
     private void btnC9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC9MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC9MouseExited
 
     private void btnC10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC10MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC10MouseExited
 
     private void btnC11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC11MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC11MouseExited
 
     private void btnC12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC12MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC12MouseExited
 
     private void btnC13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC13MouseExited
         // TODO add your handling code here:        
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC13MouseExited
 
     private void btnC14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC14MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC14MouseExited
 
     private void btnC15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC15MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC15MouseExited
 
     private void btnC16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC16MouseExited
         // TODO add your handling code here:
-        compare();
+        comparar();
     }//GEN-LAST:event_btnC16MouseExited
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed

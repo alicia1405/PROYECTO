@@ -1,6 +1,7 @@
 package CRUD;
 
 import static CRUD.Registro.registro;
+import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -18,8 +19,9 @@ public class Ahorcado1 extends javax.swing.JFrame {
     public String msgs[];
     public int ran;
     public int err;
-    public String res[];
+    public String tamanio[];
     public String x[];
+    public String clue []; 
 
     public Ahorcado1() {
         
@@ -31,6 +33,7 @@ public class Ahorcado1 extends javax.swing.JFrame {
         imgs = new ImageIcon[6];
         btns = new JButton[27];
         msgs = new String[15];
+        clue = new String[16];
 
       
         imgs[0] = new ImageIcon(getClass().getResource("/CRUD/im1.jpg"));
@@ -69,6 +72,7 @@ public class Ahorcado1 extends javax.swing.JFrame {
         btns[26] = jButton27;
 
         agregarPalabra();
+        agregarPista();
 
         
         //se asigna un evento a cada letra para comprobar que exista en la palabra a adivinar
@@ -96,12 +100,25 @@ public class Ahorcado1 extends javax.swing.JFrame {
             
         }
     }
+    public void agregarPista(){
+        ArrayList<String> go=CRUD.registros.pistas1();
+        int cont=0;
+        for(String aux: go){
+            
+            if(cont<15){
+               
+                clue[cont]=aux.toUpperCase();
+              cont++ ; 
+            }
+            
+        }
+    }
     //funcion para comenzar los parametros del juego o iniciar una nueva partida
     public void iniciar() {
         //ERRORES EN 0
         err = 0;
-        jButton1.setIcon(imgs[0]);
-        jTextPane1.setText("");
+        btnImage.setIcon(imgs[0]);
+        txtWords.setText("");
         
         //para activar las letras del tablero
         for (int i = 1; i < 27; i++) {
@@ -113,27 +130,27 @@ public class Ahorcado1 extends javax.swing.JFrame {
         String pal[] = msgs[ran].split(" ");
         //String a = String.valueOf(pal);
         
-        res = new String[msgs[ran].length() + 1];
+        tamanio = new String[msgs[ran].length() + 1];
         int j = 0;
                     // seran los guiones que van debajo de las letras como una separacion_
                     for (String pal1 : pal) {
                         for (int i = 0; i < pal1.length(); i++) {
-                            jTextPane1.setText(jTextPane1.getText() + "_ ");
-                            res[j++] = "_";                                 
+                            txtWords.setText(txtWords.getText() + "_ ");
+                            tamanio[j++] = "_";                                 
                         }                       
-                        jTextPane1.setText(jTextPane1.getText() + "\n");
-                        res[j++] = " ";
-                      
+                        txtWords.setText(txtWords.getText() + "\n");
+                        tamanio[j++] = " ";
+                    if(pal1 ==msgs[ran]){txtClue.setText(txtClue.getText() + clue[ran]);}  
                          
                     }
    
     }
 
-    //al presionar una letra, esta se buscara si pertenece a la palabra, de lo contrario la marcara como error 
+    //al ptamanioionar una letra, esta se buscara si pertenece a la palabra, de lo contrario la marcara como error 
     public void checarLetra(ActionEvent e) {
         JButton bt = (JButton) e.getSource();
         char c[];
-        //busca la letra en la palabra despues de haber sido presionada
+        //busca la letra en la palabra despues de haber sido ptamanioionada
         for (int i = 1; i < 27; i++) {
             if (bt == btns[i]) {
                 //la tecla es inicializada
@@ -146,23 +163,23 @@ public class Ahorcado1 extends javax.swing.JFrame {
                 boolean esta = false;
                 for (int j = 0; j < msgs[ran].length(); j++) {
                     if (c[0] == msgs[ran].charAt(j)) {
-                        res[j] = c[0] + "";
+                        tamanio[j] = c[0] + "";
                         esta = true;
                     }
                 }
                 //SI LA LETRA ESTA EN EL MENSAJE SE MUESTRA EN EL TEXTPANEL
                 if (esta) {
-                    jTextPane1.setText("");
-                    for (String re : res) {
+                    txtWords.setText("");
+                    for (String re : tamanio) {
                         if (" ".equals(re)) {
-                            jTextPane1.setText(jTextPane1.getText() + "\n");
+                            txtWords.setText(txtWords.getText() + "\n");
                         } else {
-                            jTextPane1.setText(jTextPane1.getText() + re + " ");
+                            txtWords.setText(txtWords.getText() + re + " ");
                         }
                     }
-                    //hace una comprobacion de las letras restantes y faltantes, en caso de que ya no haya letras sera ganador :D
+                    //hace una comprobacion de las letras tamaniotantes y faltantes, en caso de que ya no haya letras sera ganador :D
                     boolean gano = true;
-                    for (String re : res) {
+                    for (String re : tamanio) {
                         if (re.equals("_")) {
                             gano = false;
                             break;
@@ -170,13 +187,15 @@ public class Ahorcado1 extends javax.swing.JFrame {
                     }
                     //al ser correcta se muestra un mensaje y se reinicia el juego
                     if (gano) {
-                        JOptionPane.showMessageDialog(this, "Congratulations!! your score is: 100");
-                        iniciar();
+                        JOptionPane.showMessageDialog(this, "Congratulations!! your score is: 200");
+                        AudioClip aplauso;
+                         aplauso= java.applet.Applet.newAudioClip(getClass().getResource("/CRUD/aplauso.wav"));
+                        aplauso.play();
                         int puntaje= 200;
                         String va=CRUD.jugador.getUsername();
                         CRUD.nivel=CRUD.nivel+puntaje;
                         registro.modificaPuntaje(va, CRUD.nivel);
-                                             
+                         iniciar();                    
                     
 
                         return;
@@ -185,10 +204,14 @@ public class Ahorcado1 extends javax.swing.JFrame {
                     }
                     //SI LA LETRA NO ESTA EN EL MENSAGE, SE INCREMENTA EL ERROR Y SE CAMBIA LA IMAGEN
                 } else {
-                    jButton1.setIcon(imgs[++err]);
+                    btnImage.setIcon(imgs[++err]);
                     //SI SE LLEGA A LOS 5 ERRORES ENTONCES SE PIERDE EL JUEGO Y SE MANDA EL MENSAGE DE:
                     if (err == 5) {
                         JOptionPane.showMessageDialog(this, "Try with other word, the answer is: \n" + msgs[ran]);
+                        AudioClip loser;
+                        loser= java.applet.Applet.newAudioClip(getClass().getResource("/CRUD/loser.wav"));
+                        loser.play();
+                        txtClue.setText(null);
                         iniciar();
                         return;
                     }
@@ -206,9 +229,9 @@ public class Ahorcado1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnImage = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtWords = new javax.swing.JTextPane();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -235,12 +258,12 @@ public class Ahorcado1 extends javax.swing.JFrame {
         jButton25 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
+        btnRestart = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
-        jButton29 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        txtClue = new javax.swing.JTextPane();
+        btnExit = new javax.swing.JButton();
+        lbTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MexicanHangedPerson By Pear Soft&Games");
@@ -248,16 +271,16 @@ public class Ahorcado1 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CRUD/im1.jpg"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CRUD/im1.jpg"))); // NOI18N
+        btnImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnImageActionPerformed(evt);
             }
         });
 
-        jTextPane1.setEditable(false);
-        jTextPane1.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jScrollPane1.setViewportView(jTextPane1);
+        txtWords.setEditable(false);
+        txtWords.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        jScrollPane1.setViewportView(txtWords);
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
@@ -363,29 +386,29 @@ public class Ahorcado1 extends javax.swing.JFrame {
         jButton27.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton27.setText("Z");
 
-        jButton28.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
-        jButton28.setText("RESTART");
-        jButton28.addActionListener(new java.awt.event.ActionListener() {
+        btnRestart.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
+        btnRestart.setText("RESTART");
+        btnRestart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton28ActionPerformed(evt);
+                btnRestartActionPerformed(evt);
             }
         });
 
         jLabel3.setText(" ");
 
-        jScrollPane2.setViewportView(jTextPane2);
+        jScrollPane2.setViewportView(txtClue);
 
-        jButton29.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
-        jButton29.setText("EXIT");
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
+        btnExit.setText("EXIT");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel1.setText("INTERMEDIATE LEVEL");
+        lbTitle.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
+        lbTitle.setForeground(new java.awt.Color(204, 0, 51));
+        lbTitle.setText("INTERMEDIATE LEVEL");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -464,7 +487,7 @@ public class Ahorcado1 extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton8))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnImage, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -472,12 +495,12 @@ public class Ahorcado1 extends javax.swing.JFrame {
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(56, 56, 56)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
+                                                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
                 .addGap(0, 69, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(221, 221, 221)
-                .addComponent(jLabel1)
+                .addComponent(lbTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -486,21 +509,21 @@ public class Ahorcado1 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addComponent(jLabel1)
+                        .addComponent(lbTitle)
                         .addGap(136, 136, 136)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(192, 192, 192)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnImage, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(144, 144, 144)
-                                .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
-                                .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -556,19 +579,20 @@ public class Ahorcado1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+    private void btnRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartActionPerformed
+        txtClue.setText(null);
         iniciar();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton28ActionPerformed
+    }//GEN-LAST:event_btnRestartActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnImageActionPerformed
 
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         Menu abrir = new Menu();
         abrir.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton29ActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -611,7 +635,9 @@ public class Ahorcado1 extends javax.swing.JFrame {
     
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnImage;
+    private javax.swing.JButton btnRestart;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -631,8 +657,6 @@ public class Ahorcado1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -640,12 +664,12 @@ public class Ahorcado1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JLabel lbTitle;
+    private javax.swing.JTextPane txtClue;
+    private javax.swing.JTextPane txtWords;
     // End of variables declaration//GEN-END:variables
 }

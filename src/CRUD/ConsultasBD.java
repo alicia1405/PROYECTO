@@ -107,5 +107,51 @@ public class ConsultasBD {
         return result;
         
     }
+     public ArrayList<String>pistas(){
+        ArrayList<String> result = new ArrayList();
+        ResultSet rs = baseDatos.consultar("SELECT * FROM palabras");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    result.add(rs.getString("pistas"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+        
+    }
+    public ArrayList<String>pistas1(){
+        ArrayList<String> result = new ArrayList();
+        ResultSet rs = baseDatos.consultar("SELECT * FROM palabras1");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    result.add(rs.getString("pistas1"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+        
+    }
+    public ArrayList<String>pistas2(){
+        ArrayList<String> result = new ArrayList();
+        ResultSet rs = baseDatos.consultar("SELECT * FROM palabras3");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    result.add(rs.getString("pistas3"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+        
+    }
+
 }
 
